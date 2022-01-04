@@ -349,7 +349,7 @@ git pull --rebase <remote> <branch>
 
 ##### 将本地版本发布到远程端：
 ```
-$ git push remote <remote> <branch>
+$ git push <remote> <branch>
 ```
 
 ##### 删除远程端分支：
