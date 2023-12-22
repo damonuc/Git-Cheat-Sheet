@@ -105,7 +105,7 @@ $ git config --global core.editor vi
 
 ### 创建
 
-##### 复制一个已创建的仓库:
+##### 复制一个已创建的仓库:(clone不需要验证账号密码，任何人都可以clone东西)
 
 ```bash
 # 通过 SSH
@@ -145,6 +145,7 @@ $ git add -p <file>
 ```
 
 ##### 提交本地的所有修改：
+<em><sub>git commit -a加了-a,在 commit 的时候,能帮你省一步 git add ,但也只是对修改和删除文件有效, 新文件还是要 git add,不然就是 untracked 状态</sub></em>
 ```
 $ git commit -a
 ```
@@ -165,7 +166,14 @@ git commit --date="`date --date='n day ago'`" -am "Commit Message"
 ```
 
 ##### 修改上次提交
-<em><sub>请勿修改已发布的提交记录!</sub></em>
+<em><sub>请勿修改已发布的提交记录!
+注意：这里的之前指最近的commit，而且没有push到远程。
+修改提交的内容分为2种情况：
+1提交了代码之后,又有新的改动，不想创建两个commit
+2发现一个地方改错了，下次提交时不想保留上一次的记录
+这时就可以使用git commit --amend命令把新的内容添加到之前的commit里面,这个命令没有添加新的提交，而是用新提交取代了原始提交。
+</sub></em>
+
 ```
 $ git commit --amend
 ```
@@ -181,6 +189,13 @@ git commit --amend --date="date"
 ```
 
 ##### 把当前分支中未提交的修改移动到其他分支：
+<em><sub>请勿修改已发布的提交记录!
+注意：这里的之前指最近的commit，而且没有push到远程。
+修改提交的内容分为2种情况：
+1提交了代码之后,又有新的改动，不想创建两个commit
+2发现一个地方改错了，下次提交时不想保留上一次的记录
+这时就可以使用git commit --amend命令把新的内容添加到之前的commit里面,这个命令没有添加新的提交，而是用新提交取代了原始提交。
+</sub></em>
 ```
 git stash
 git checkout branch2
